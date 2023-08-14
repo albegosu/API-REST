@@ -25,7 +25,7 @@ public class UserService {
             return "Deleted" + userId;
         }
         catch(Exception Error){
-            return "Not Deleted" + Error.getMessage();
+            return "Not Deleted" + Error;
         }
     }
     public ArrayList<CUser> getUsers() { return (ArrayList<CUser>) iUserRepository.findAll(); }
@@ -35,6 +35,6 @@ public class UserService {
         user.setName(cUser.getName());
         user.setLastname(cUser.getLastname());
 
-        return user;
+        return iUserRepository.save(user);
     }
 }
